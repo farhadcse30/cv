@@ -44,7 +44,7 @@ global $CFG;
                 <li><a href="WorkHistory/">Work History</a></li>
                 <li><a href="EducationHistory/">Education History</a></li>
                 <li><a href="HobbiesnInterests/">Hobbies and Interests</a></li>
-		<li><a href="'.$CFG->wwwroot.'/Projects/">Projects</a></li>
+		<li><a href="Projects">Projects</a></li>
                 <li><a href="ContactMe/">Contact Me</a></li>
             </ul>
         </div> <!-- Panel End -->
