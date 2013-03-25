@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 24, 2013 at 11:21 PM
+-- Generation Time: Mar 25, 2013 at 11:25 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -161,6 +161,57 @@ INSERT INTO `personal` (`id`, `user`, `intro`, `description`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `project`
+--
+
+CREATE TABLE IF NOT EXISTS `project` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user` int(11) NOT NULL,
+  `intro` text COLLATE utf8_unicode_ci NOT NULL,
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`id`, `user`, `intro`, `modified`) VALUES
+(1, 1, 'I have done many projects while I was studying and also in my working period in different companies', '2013-03-25 21:55:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_history`
+--
+
+CREATE TABLE IF NOT EXISTS `project_history` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `project_id` int(11) NOT NULL,
+  `title` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `project_of` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `startdate` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `enddate` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `descriptions` text COLLATE utf8_unicode_ci,
+  `contributer` text COLLATE utf8_unicode_ci,
+  `url` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `display_order` int(11) NOT NULL,
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `work_id_idx` (`project_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `project_history`
+--
+
+INSERT INTO `project_history` (`id`, `project_id`, `title`, `project_of`, `startdate`, `enddate`, `descriptions`, `contributer`, `url`, `display_order`, `modified`) VALUES
+(1, 1, 'Moodle Plugin for turnitintool integration', 'SOAS and ULCC', '20-December-2012', '08-Feb-2013', 'This a plugin for moodle which enable SOAS to declare thousands of assessment for students submission over night and also cullect submitted assessments result in every night and export the results history in a sftp location.', 'Abdul Bashet', 'http://www.ulcc.ac.uk', 1, '2013-03-25 23:12:44'),
+(2, 1, 'ePrints', 'UAL and ULCC', '20-Feb-2013', 'Runnig', 'The aim of this plugin is to deposit repository directly in to ePrints service (http://alto.arts.ac.uk) from UAL moodle. So all UAL staffs and students don''t have to upload and of their work porofolio multiple times.', 'Abdul Bashet', 'alto.arts.ac.uk', 2, '2013-03-25 23:20:22');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -196,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `work_history` (
   `enddate` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `descriptions` text COLLATE utf8_unicode_ci,
   `display_order` int(11) NOT NULL,
-  `modified` timestamp NULL DEFAULT NULL,
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `work_id_idx` (`work_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
@@ -218,6 +269,12 @@ INSERT INTO `work_history` (`id`, `work_id`, `title`, `employer`, `startdate`, `
 --
 ALTER TABLE `education_history`
   ADD CONSTRAINT `education_id` FOREIGN KEY (`education_id`) REFERENCES `education` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `project_history`
+--
+ALTER TABLE `project_history`
+  ADD CONSTRAINT `project_id` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `work_history`

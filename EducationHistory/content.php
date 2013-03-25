@@ -28,8 +28,8 @@ $content .= '<table data-role="table" id="table" data-mode="reflow" class="ui-re
                               <th data-priority="1">SN</th>
                               <th data-priority="persist">Course Title</th>
                               <th data-priority="2">Start</th>
-                              <th data-priority="2">End</th>
-                              <th data-priority="3">Result</th>
+                              <th data-priority="3">End</th>
+                              <th data-priority="4">Result</th>
                              </tr>
                   </thead>
                   <tbody>';

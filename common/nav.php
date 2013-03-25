@@ -32,9 +32,10 @@ $sql = "Select personal.intro as personal,
         mywork.intro as mywork,
         education.intro as education,
         hobbies.intro as hobbies,
-        contact.intro as contact
-        from personal,mywork,education,hobbies,contact
-        where personal.user=mywork.user and personal.user=education.user and personal.user=hobbies.user and personal.user=contact.user";
+        contact.intro as contact,
+        project.intro as project
+        from personal,mywork,education,hobbies,contact,project
+        where personal.user=mywork.user and personal.user=education.user and personal.user=hobbies.user and personal.user=contact.user and personal.user=project.user";
 
 if ($result = $mysqli->query($sql)) {
     while($obj = $result->fetch_object()){
@@ -43,6 +44,7 @@ if ($result = $mysqli->query($sql)) {
         $education = $obj->education;
         $hobbies = $obj->hobbies;
         $contact = $obj->contact;
+        $project = $obj->project;
 
     }
     $result->close();
@@ -66,6 +68,10 @@ $nav .='<div data-role="collapsible-set" data-content-theme="c">
             <div data-role="collapsible" data-theme="b" data-content-theme="b">
                 <h3>Hobbies and Interests</h3>
                 <p>'. $hobbies .' <a href="'.$CFG->wwwroot.'/HobbiesnInterests/">Please click here to see my all hobbies and interests</a></p>
+            </div>
+            <div data-role="collapsible" data-theme="b" data-content-theme="b">
+                <h3>My Projects</h3>
+                <p>'. $project .' <a href="'.$CFG->wwwroot.'/Projects/">Please click here to see my all hobbies and interests</a></p>
             </div>
             <div data-role="collapsible" data-theme="b" data-content-theme="b">
                 <h3>Contact Me</h3>

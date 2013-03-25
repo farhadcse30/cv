@@ -19,6 +19,7 @@ $panel .= '<div data-role="panel" class="jqm-nav-panel jqm-navmenu-panel" data-p
                 <li><a href="'.$CFG->wwwroot.'/WorkHistory/">Work History</a></li>
                 <li><a href="'.$CFG->wwwroot.'/EducationHistory/">Education History</a></li>
                 <li><a href="'.$CFG->wwwroot.'/HobbiesnInterests/">Hobbies and Interests</a></li>
+                <li><a href="'.$CFG->wwwroot.'/Projects/">Projects</a></li>
                 <li><a href="'.$CFG->wwwroot.'/ContactMe/">Contact Me</a></li>
             </ul>
         </div>';
