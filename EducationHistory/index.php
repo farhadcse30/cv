@@ -29,17 +29,6 @@
     <div data-role="header" class="jqm-header">
         <h1 class="jqm-logo"><a href="../"><img src="../images/abdulbashet.png" alt="Abdul Bashet"></a></h1>
         <a href="#" class="jqm-navmenu-link" data-icon="bars" data-iconpos="notext">Navigation</a>
-        <a href="#" class="jqm-search-link" data-icon="search" data-iconpos="notext">Search</a>
-
-        <div class="jqm-search">
-            <ul class="jqm-list">
-
-                <li data-section="Widgets" data-filtertext="accordions collapsible sets content formatting grouped inset mini"><a href="widgets/accordions/">Accordion</a></li>
-
-                <li data-section="Widgets" data-filtertext="ajax navigation navigate event method"><a href="widgets/navigation/" data-ajax="false">AJAX Navigation</a></li>
-            </ul>
-        </div>
-
     </div><!-- /header -->
 
     <div data-role="content" class="jqm-content">
